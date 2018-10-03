@@ -1,0 +1,14 @@
+{
+  "name": "jsconcepts",
+  "version": "1.0.0",
+  "description": "It is just a kind of sandbox where I am learning and practising basic concepts and patterns of programming (common data structures, algorithms and etc) - made in javascript.",
+  "main": "index.html",
+  "scripts": {
+    "dev": "./node_modules/.bin/http-server -a localhost -p 4000 -c-1"
+  },
+  "author": "pavel.handleman@gmail.com",
+  "license": "MIT",
+  "devDependencies": {
+    "http-server": "^0.11.1"
+  }
+}

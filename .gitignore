@@ -1,0 +1,9 @@
+/index.html
+package-lock.json
+.idea
+.vscode
+.DS_Store
+.vscode
+static/build
+node_modules
+
