@@ -4,11 +4,17 @@
   "description": "It is just a kind of sandbox where I am learning and practising basic concepts and patterns of programming (common data structures, algorithms and etc) - made in javascript.",
   "main": "index.html",
   "scripts": {
-    "dev": "./node_modules/.bin/http-server -a localhost -p 4000 -c-1"
+    "dev": "./node_modules/.bin/http-server -a localhost -p 4000 -c-1",
+    "test": "mocha --require @babel/register '**/*.test.js'"
   },
   "author": "pavel.handleman@gmail.com",
   "license": "MIT",
   "devDependencies": {
-    "http-server": "^0.11.1"
-  }
+    "@babel/core": "^7.1.2",
+    "@babel/preset-env": "^7.1.0",
+    "@babel/register": "^7.0.0",
+    "http-server": "^0.11.1",
+    "mocha": "^3.5.3"
+  },
+  "dependencies": {}
 }
