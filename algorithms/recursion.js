@@ -2,7 +2,6 @@ function look_for_key_in_box(box) {
     if(box.boxes){
         box.boxes.forEach((val)=>{
             if(val.hasKey){
-                console.log('item has a key!');
                 return val;
             }else if(val.boxes){
                 look_for_key_in_box(val);

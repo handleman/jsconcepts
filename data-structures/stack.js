@@ -1,7 +1,6 @@
-// todo: implement stack pattern
 class Stack{
     constructor(){
-        this._lenght = 0
+        this._lenght = 0;
         this._values = {};
     }
     push(val){
