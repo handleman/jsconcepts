@@ -15,6 +15,8 @@ class Stack {
 			delete this.values[this._lenght];
 			this._lenght--;
 			return val;
+		}else{
+			return null;
 		}
 	}
 
