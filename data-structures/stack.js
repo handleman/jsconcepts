@@ -6,7 +6,7 @@ class Stack {
 
 	push(val) {
 		this._lenght++;
-		this._values[length] = val;
+		this._values[this._lenght] = val;
 	}
 
 	pop() {
