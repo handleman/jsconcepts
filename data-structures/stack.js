@@ -12,7 +12,7 @@ class Stack {
 	pop() {
 		if (this._lenght) {
 			const val = this._values[this._lenght];
-			delete this.values[this._lenght];
+			delete this._values[this._lenght];
 			this._lenght--;
 			return val;
 		}else{
