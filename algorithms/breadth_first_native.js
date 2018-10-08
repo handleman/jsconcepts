@@ -1,36 +1,8 @@
-const foo = {
-    pavel:{
-        friends:['olga','anton','denis','vad'],
-        sellMango: false,
-    },
-    olga:{
-        friends:['tania','denis','vad'],
-        sellMango: false,
-    },
-    vad:{
-        friends:['tania','oleg','vad'],
-        sellMango: false,
-    },
-    anton:{
-        friends:['pavel','oleg','olga'],
-        sellMango: false,
-    },
-    denis:{
-        friends:['pavel','vad','olga'],
-        sellMango: false,
-    },
-    tania:{
-        friends:['anton','denis','olga'],
-        sellMango: false,
-    },
-    oleg:{
-        friends:['anton', 'vad'],
-        sellMango:true,
-    }
-};
-
-
-
+/**
+ * condition that you would like to check on item. For now it is just checking 'sellMango' property change for you own
+ * @param {Object} val - item from list you are checking for some conditions.
+ * @returns {boolean} whether conditions work
+ */
 function matchCondition(val) {
     return val.sellMango ? true : false;
 }
@@ -60,4 +32,4 @@ function breadthFirst(list, start){
         }
     }
 }
-export {breadthFirst, foo}
+export {breadthFirst}

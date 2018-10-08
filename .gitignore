@@ -6,4 +6,4 @@ package-lock.json
 .vscode
 static/build
 node_modules
-
+/sample
