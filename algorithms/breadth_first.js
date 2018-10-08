@@ -52,6 +52,7 @@ function breadthFirst(list, start){
             list[item].friends.forEach((val)=>{
                 if(!passed[val]){
                     qu.push(val);
+                    passed[val] = true;
                 }
             });
         }
