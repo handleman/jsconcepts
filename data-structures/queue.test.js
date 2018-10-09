@@ -3,7 +3,7 @@ import chai from 'chai';
 
 const expect  = chai.expect;
 
-describe('queue.js', ()=>{
+describe('data-structures/queue.js', ()=>{
 
 	it('should have all standard interface methods', () => {
 		const queue = new Queue();

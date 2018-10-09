@@ -3,7 +3,8 @@ import chai from 'chai';
 
 const expect = chai.expect;
 
-describe('stack.js', ()=>{
+describe('data-structures/stack.js', ()=>{
+
 	it('should have all standard interface methods', () => {
 		const stack = new Stack;
 		expect(stack).to.be.an('object').that.is.not.empty;
