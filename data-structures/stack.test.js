@@ -4,14 +4,20 @@ import chai from 'chai';
 const expect = chai.expect;
 
 describe('stack.js', ()=>{
-
-	it('New stack should be empty, able to increase and decrease on purpose.', ()=>{
+	it('should have all standard interface methods', () => {
 		const stack = new Stack;
-		expect(stack.length()).to.be.a('number').that.equal(0);
-		stack.push(10);
-		expect(stack.length()).to.equal(1);
-		expect(stack.pop()).to.equal(10);
-		expect(stack.length(), 'when stack is empty').to.equal(0);
+		expect(stack).to.be.an('object').that.is.not.empty;
+		expect(stack).to.respondTo('length');
+		expect(stack).to.respondTo('push');
+		expect(stack).to.respondTo('pop');
+	});
+
+	it('should be initialized correctly', ()=>{
+		const stack = new Stack;
+		expect(stack.length()).equal(0);
+		expect(stack.pop()).to.be.null;
+		expect(stack.length()).equal(0);
+
 	});
 
 	it('Return last element when pop ( LIFO principles).', ()=>{
@@ -23,10 +29,5 @@ describe('stack.js', ()=>{
 		expect(stack.length()).to.equal(99);
 	});
 
-	it('return null value in case there is no elements inside', ()=>{
-		const stack = new Stack;
-		expect(stack.length()).equal(0);
-		expect(stack.pop()).to.be.null;
-	});
 
 });
