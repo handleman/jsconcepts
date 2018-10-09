@@ -1,42 +1,32 @@
 import Stack from './stack.js';
+import chai from 'chai';
 
-it('stack.js: increment stack length after adding item to it', ()=>{
-	const stack = new Stack;
-	stack.push(0);
-	const length = stack.length();
+const expect = chai.expect;
 
-	if(length !== 1){
-		throw new Error(`stack length should be incremented by 1, but instead it is ${length}`);
-	}
-});
+describe('stack.js', ()=>{
 
-it('stack.js: return last on pop ( LIFO principles) and decrease in length ', ()=>{
-	const stack = new Stack;
-	stack.push(0);
-	stack.push(1);
-    const foo = stack.pop();
+	it('New stack should be empty, able to increase and decrease on purpose.', ()=>{
+		const stack = new Stack;
+		expect(stack.length()).to.be.a('number').that.equal(0);
+		stack.push(10);
+		expect(stack.length()).to.equal(1);
+		expect(stack.pop()).to.equal(10);
+		expect(stack.length(), 'when stack is empty').to.equal(0);
+	});
 
-	if(foo !== 1){
-		throw new Error(`last entered value should be equal \'1\' now it is: ${foo} `);
-	}
-	if(stack.length() !== 1){
-		throw new Error(`Decreased length after popping out third element should be equal 1, now it is : ${stack.length}`);
-	}
-});
-it('stack.js: return null value in case there is no elements inside', ()=>{
-	const stack = new Stack;
-	for(let i = 0; i < 100; i++){
-		stack.push(i);
-		stack.pop();
-	}
-	const length = stack.length();
-	const foo = stack.pop();
+	it('Return last element when pop ( LIFO principles).', ()=>{
+		const stack = new Stack;
+		for(let i = 1; i <= 100; i++){
+			stack.push(i);
+		}
+		expect(stack.pop()).to.equal(100);
+		expect(stack.length()).to.equal(99);
+	});
 
-	if (length !== 0){
-		throw new Error(`stack should be empty and length of it equal 0, now it is: ${length}`)
-	}
-	if (foo !== null){
-		throw new Error(`instead of 'null' there is: ${foo}`)
-	}
+	it('return null value in case there is no elements inside', ()=>{
+		const stack = new Stack;
+		expect(stack.length()).equal(0);
+		expect(stack.pop()).to.be.null;
+	});
 
 });
