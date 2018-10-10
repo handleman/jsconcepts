@@ -1,5 +1,4 @@
 # concepts of common data structures and algorithms made in js
-## this is my playground for training my skills in javascript
 
 It is just a kind of sandbox where I am learning and practising basic concepts and patterns of programming (common data structures, algorithms and etc) - made in javascript.
 
