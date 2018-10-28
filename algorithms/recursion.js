@@ -1,13 +1,18 @@
 function look_for_key_in_box(box) {
-    if(box.boxes){
-        box.boxes.forEach((val)=>{
-            if(val.hasKey){
-                return val;
-            }else if(val.boxes){
-                look_for_key_in_box(val);
+    let result = null;
+    if(box.hasKey){
+        return box;
+    }
+    else if(box.boxes && box.boxes.length){
+        box.boxes.some((val)=>{
+            result = look_for_key_in_box(val);
+            if( result !== null){
+                return true;
             }
         })
     }
+    return result
+
 
 }
 function sum(items){
