@@ -1,4 +1,4 @@
-import {look_for_key_in_box, sum} from './recursion.js';
+import {look_for_key_in_box, sum, count} from './recursion.js';
 import chai from 'chai';
 
 import {pileOfBoxes} from '../sample/graphs.js';
@@ -41,9 +41,30 @@ describe('algorithms/recursion.js', ()=>{
             expect(sum(undefined)).to.be.null;
             expect(sum('undefined')).to.be.null;
             expect(sum('random text')).to.be.null;
-            expect(look_for_key_in_box(null)).to.be.null;
+            expect(sum(null)).to.be.null;
             expect(sum(true)).to.be.null;
 
         });
     });
+    describe('count amount of objects function', ()=>{
+        it('should be defined', ()=>{
+            expect(count).to.be.a('function');
+        });
+        it('should sum give sum of array elements as a result', ()=>{
+            const elements = [1,2,3,4,5,6,7,8,9,10];
+            const elements_count = 10;
+            const result = count(elements);
+            expect(result).to.equal(elements_count);
+        });
+        it('should not fail with exception on unappropriated values', () => {
+            expect(count(NaN)).to.be.null;
+            expect(count(undefined)).to.be.null;
+            expect(count('undefined')).to.be.null;
+            expect(count('random text')).to.be.null;
+            expect(count(null)).to.be.null;
+            expect(count(true)).to.be.null;
+
+        });
+    });
+
 });

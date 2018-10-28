@@ -28,12 +28,15 @@ function sum(items){
         return items.shift() + sum(items);
     }
 }
-function count(item){
-    if(item.length <1){
+function count(items){
+    if(!items || items.constructor !== Array){
+        return null;
+    }
+    if(items.length <1){
         return 0;
     }
-    item.pop();
-    return 1 + count(item)
+    items.pop();
+    return 1 + count(items)
 }
 function max(item){
     if(item.length ===1){
