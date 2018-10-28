@@ -1,4 +1,4 @@
-import {look_for_key_in_box, sum, count} from './recursion.js';
+import {look_for_key_in_box, sum, count, max} from './recursion.js';
 import chai from 'chai';
 
 import {pileOfBoxes} from '../sample/graphs.js';
@@ -63,6 +63,26 @@ describe('algorithms/recursion.js', ()=>{
             expect(count('random text')).to.be.null;
             expect(count(null)).to.be.null;
             expect(count(true)).to.be.null;
+
+        });
+    });
+    describe('maximum value in array function', ()=>{
+        it('should be defined', ()=>{
+            expect(max).to.be.a('function');
+        });
+        it('should sum give sum of array elements as a result', ()=>{
+            const elements = [1,2,3,4,5,66,7,8,9,10];
+            const maxi = 66;
+            const result = max(elements);
+            expect(result).to.equal(maxi);
+        });
+        it('should not fail with exception on unappropriated values', () => {
+            expect(max(NaN)).to.be.null;
+            expect(max(undefined)).to.be.null;
+            expect(max('undefined')).to.be.null;
+            expect(max('random text')).to.be.null;
+            expect(max(null)).to.be.null;
+            expect(max(true)).to.be.null;
 
         });
     });

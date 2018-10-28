@@ -38,16 +38,19 @@ function count(items){
     items.pop();
     return 1 + count(items)
 }
-function max(item){
-    if(item.length ===1){
+function max(items){
+    if(!items || items.constructor !== Array){
+        return null;
+    }
+    if(items.length ===1){
         return item[0];
     }
-    if(item.length === 2){
-        return Math.max(item[0], item[1])
+    if(items.length === 2){
+        return Math.max(items[0], items[1])
     }
-    const first = item.shift();
+    const first = items.shift();
 
-    return Math.max(first,max(item));
+    return Math.max(first,max(items));
 }
 
 export {look_for_key_in_box, sum, count, max }
