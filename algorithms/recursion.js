@@ -1,5 +1,8 @@
 function look_for_key_in_box(box) {
     let result = null;
+    if(!box){
+        return null;
+    }
     if(box.hasKey){
         return box;
     }
@@ -16,10 +19,13 @@ function look_for_key_in_box(box) {
 
 }
 function sum(items){
+    if(!items || items.constructor !== Array){
+        return null;
+    }
     if(items.length < 2){
         return items[0] || 0;
     }else{
-        return items.shift() +sum(items);
+        return items.shift() + sum(items);
     }
 }
 function count(item){
