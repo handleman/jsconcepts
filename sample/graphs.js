@@ -20,7 +20,7 @@ const fruitSellers = {
 		sellMango: false,
 	},
 	tania:{
-		friends:['anton','denis','olga'],
+		friends:['anton','denis','olga', 'vladimir'],
 		sellMango: false,
 	},
 	oleg:{
