@@ -68,4 +68,39 @@ const pileOfBoxes = {
     ]
 };
 
+/**
+ * graph tree represent fictional roadmap for several cities.
+ * requred for dijkstra algorithm and other that search for
+ * shortest routes/costs
+ * @type {Object}
+ */
+const cities = {
+	hrodna: {
+		minsk:290,
+		lida:100,
+		slonim:130
+	},
+	minsk: {
+		vitebsk: 280,
+		bobruisk:60
+	},
+	bobruisk: {
+		kobrin: 40,
+		hrodna:100,
+	},
+	slonim:{
+		minsk: 200,
+	},
+	kobrin:{
+		vitebsk: 70
+	},
+	lida:{
+		minsk: 190,
+		bobruisk:100,
+	},
+	vitebsk: {
+		minsk: 280
+	}
+};
+
 export {fruitSellers, pileOfBoxes}
