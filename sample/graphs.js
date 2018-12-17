@@ -102,7 +102,7 @@ const cities = {
 		minsk: 280
 	}
 };
-const citiesCosts = {
+const cititesCostsResults = {
 	minsk: 290,
 	lida:100,
 	slonim:130,
@@ -110,5 +110,10 @@ const citiesCosts = {
 	bobruisk: Infinity,
 	kobrin: Infinity,
 };
+const citiesPathResult = {
+	path: ['hrodna', 'lida', 'bobruisk', 'kobrin', 'vitebsk'],
+	value: (100+ 100 +40 +70)
+};
 
-export {fruitSellers, pileOfBoxes, citiesCosts, cities}
+
+export {fruitSellers, pileOfBoxes, cititesCostsResults, cities, citiesPathResult}
