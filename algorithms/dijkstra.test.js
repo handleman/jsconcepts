@@ -1,5 +1,5 @@
-import {dijkstra} from './dijkstra';
-import {cities} from '../sample/graphs'
+import {dijkstra, calculateCosts} from './dijkstra';
+import {cities, citiesCosts} from '../sample/graphs'
 import chai from 'chai';
 
 const expect  = chai.expect;
@@ -14,6 +14,11 @@ describe('algorithms/dijkstra.js', ()=>{
 		expect(shortPath).to.be.a('object').that.have.all.own.keys('path','value');
 		expect(shortPath.path).to.be.a('array');
 		expect(shortPath.value).to.be.a('number')
+	});
+	it('should build initial costs hash table', () =>{
+		const costs = calculateCosts(cities, 'hrodna');
+		console.log('citiesCosts: ', citiesCosts);
+		expect(costs).to.deep.equal(citiesCosts);
 	});
 
 

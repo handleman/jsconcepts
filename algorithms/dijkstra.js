@@ -11,4 +11,27 @@ function dijkstra(graph, start, finish){
 	const value = Infinity;
 	return {path, value};
 }
-export {dijkstra}
+
+function calculateCosts(graph, startPoint) {
+	if(!startPoint){
+		throw new Error("start point should be defined")
+	}
+
+	const startCosts = graph[startPoint];
+	const unic = {};
+
+	for (const nodeName in graph){
+		if (nodeName !== startPoint && !unic.hasOwnProperty(nodeName)){
+			if(startCosts.hasOwnProperty(nodeName)){
+				unic[nodeName] = startCosts[nodeName];
+			}else{
+
+				unic[nodeName] = Infinity;
+			}
+		}
+
+	}
+	return unic;
+
+}
+export {dijkstra, calculateCosts}

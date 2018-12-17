@@ -102,5 +102,13 @@ const cities = {
 		minsk: 280
 	}
 };
+const citiesCosts = {
+	minsk: 290,
+	lida:100,
+	slonim:130,
+	vitebsk: Infinity,
+	bobruisk: Infinity,
+	kobrin: Infinity,
+};
 
-export {fruitSellers, pileOfBoxes}
+export {fruitSellers, pileOfBoxes, citiesCosts, cities}
