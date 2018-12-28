@@ -115,5 +115,20 @@ const citiesPathResult = {
 	value: (100+ 100 +40 +70)
 };
 
+const radio = {
+	'Unistar':['hrodna', 'minsk', 'bobruisk', 'slonim', 'mogilev', 'gomel', 'brest', 'lida', 'pinsk'],
+	'Новое Радио':['minsk', 'vitebsk','hrodna', 'gomel', 'brest' ],
+	'Русское Радио':['hrodna', 'minsk', 'vitebsk', 'gomel', 'brest', 'pinsk'],
+	'Душевное Радио':['hrodna', 'vitebsk', 'bobruisk'],
+	'Радио Брест':[ 'slonim', 'brest', 'lida', 'pinsk'],
+	'Юмор FM':['hrodna', 'gomel', 'brest', 'lida', 'pinsk'],
+	'Пилот FM':['brest', 'lida', 'pinsk'],
+	'Радио Би-Эй':['minsk',  'slonim', 'mogilev', 'gomel', 'lida', 'pinsk'],
+	'Радио Витебск':[ 'vitebsk'],
+	'Радио Могилев':[ 'mogilev'],
+	'Альфа Радио':['slonim', 'mogilev', 'gomel', 'brest', 'pinsk'],
+	'Зефир FM':['bobruisk', 'gomel'],
+};
 
-export {fruitSellers, pileOfBoxes, cititesCostsResults, cities, citiesPathResult}
+
+export {fruitSellers, pileOfBoxes, cititesCostsResults, cities, citiesPathResult, radio}
