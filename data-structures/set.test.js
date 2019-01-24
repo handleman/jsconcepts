@@ -24,27 +24,41 @@ describe('data-structures/set.js', ()=>{
 
 	});
 
-	it('should implement basic operations with sets', () => {
+	it('should implement \'union\' operation on sets', ()=>{
 		const A = ['1','2','3'];
 		const B = ['4','5','6'];
 		const AB = ['1','2','3', '4', '5', '6'];
-		const C = ['1','2','3', '4', '5'];
-		const D = ['4', '5', '6', '7', '8'];
-		const IntersectionCD = ['4', '5'];
-		const DifferenceCD = ['1','2','3'];
-
 		const a = new Set(A);
 		const b = new Set(B);
+		const ab = Set.union(a, b);
+		expect(ab).to.eql(AB);
+	});
+	it('should implement \'intersection\' operation on sets', ()=>{
+		const C = ['1','2','3', '4', '5'];
+		const D = ['4', '5', '6', '7', '8'];
 		const c = new Set(C);
 		const d = new Set(D);
-
-		const ab = Set.union(a, b);
 		const intersectionCD = Set.intersection(c, d);
-		const differenceCD = Set.intersection(c, d);
-
-		expect(ab).to.eql(AB);
 		expect(intersectionCD).to.eql(IntersectionCD);
+	});
+	it('should implement \'difference\' operation on sets', ()=>{
+		const C = ['1','2','3', '4', '5'];
+		const D = ['4', '5', '6', '7', '8'];
+		const c = new Set(C);
+		const d = new Set(D);
+		const differenceCD = Set.intersection(c, d);
 		expect(differenceCD).to.eql(DifferenceCD);
+	});
+	it('should implement \'add\' operation on set', ()=>{
+		const A = ['1','2','3'];
+		const B = ['4','5','6'];
+		const AB = ['1','2','3', '4', '5', '6'];
+		const a = new Set(A);
+
+		a.add(B);
+
+		expect(a.get()).eql(AB);
+
 	});
 
 });
