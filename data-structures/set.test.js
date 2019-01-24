@@ -10,16 +10,17 @@ describe('data-structures/set.js', ()=>{
 		expect(set).to.be.an('object').that.is.not.empty;
         expect(set).to.respondTo('add');
         expect(set).to.respondTo('get');
-        expect(Set).to.respondTo('union');
-        expect(Set).to.respondTo('intersection');
-        expect(Set).to.respondTo('difference');
+        expect(Set).itself.to.respondTo('union');
+        expect(Set).itself.to.respondTo('intersection');
+        expect(Set).itself.to.respondTo('difference');
 	});
 
 	it('should be initialized correctly', () => {
 		const checkSet= ['1','2','3'];
         const set = new Set(checkSet);
         expect(set.get()).to.be.an('array');
-        expect(set.get()).equal(checkSet);
+
+        expect(set.get()).eql(checkSet);
 
 	});
 
@@ -41,9 +42,9 @@ describe('data-structures/set.js', ()=>{
 		const intersectionCD = Set.intersection(c, d);
 		const differenceCD = Set.intersection(c, d);
 
-		expect(ab).to.equal(AB);
-		expect(intersectionCD).to.equal(IntersectionCD);
-		expect(differenceCD).to.equal(DifferenceCD);
+		expect(ab).to.eql(AB);
+		expect(intersectionCD).to.eql(IntersectionCD);
+		expect(differenceCD).to.eql(DifferenceCD);
 	});
 
 });
