@@ -8,8 +8,12 @@ class Set{
             });
         }
     }
-    add(B){
-
+    add(additionalSet){
+        console.log('additionalSet', additionalSet);
+        additionalSet.forEach(val=>{
+           this._set[val] = true;
+        });
+        return this.get();
     }
     get(){
         const setAsArray = [];
@@ -20,8 +24,29 @@ class Set{
         });
         return setAsArray;
     }
-    static union(A, B){
+    static _typeErroGenerator(methodName){
+        return `${methodName} method requires two attributes of proper types (Array or Set)`;
+    }
+    static union(initialSet, additionalSet){
+        const typeErrorMesage =  this._typeErroGenerator('union');
 
+        if(!initialSet || !additionalSet){
+            throw TypeError(typeErrorMesage);
+        }
+        let source;
+        let additional;
+        if(initialSet.constructor === Array && additionalSet.constructor === Array){
+            source = initialSet;
+            additional = additionalSet;
+        } else if(initialSet.constructor === Set && additionalSet.constructor === Set){
+            source = initialSet.get();
+            additional = additionalSet.get();
+        }else{
+            throw TypeError(typeErrorMesage)
+        }
+        const unitedSet = new Set(source);
+        unitedSet.add(additional);
+        return unitedSet;
     }
     static intersection (A, B){
 
