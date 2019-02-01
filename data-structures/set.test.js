@@ -22,7 +22,20 @@ describe('data-structures/set.js', ()=>{
         expect(set.get()).eql(checkSet);
 
 	});
+	it('should implement \'has\' operation on set', ()=>{
+		const A = ['1','2','3'];
+		const a = new Set(A);
 
+		expect(a.has('2')).to.be.true;
+		expect(a.has('4')).to.be.false;
+		expect(a.has(1888)).to.be.false;
+
+
+		expect(()=>{a.has(null)}).to.throw(TypeError);
+		expect(()=>{a.has(undefined)}).to.throw(TypeError);
+		expect(()=>{a.has(NaN)}).to.throw(TypeError);
+
+	});
     it('should implement \'add\' operation on set', ()=>{
         const A = ['1','2','3'];
         const B = ['4','5','6'];
@@ -57,10 +70,12 @@ describe('data-structures/set.js', ()=>{
 	it('should implement \'intersection\' operation on sets', ()=>{
 		const C = ['1','2','3', '4', '5'];
 		const D = ['4', '5', '6', '7', '8'];
+		const IntersectionCD = ['4','5'];
 		const c = new Set(C);
+
 		const d = new Set(D);
-		const intersectionCD = Set.intersection(c, d);
-		expect(intersectionCD).to.eql(IntersectionCD);
+		const intersection = Set.intersection(c, d);
+		expect(intersection.get()).to.eql(IntersectionCD);
 	});
 	it('should implement \'difference\' operation on sets', ()=>{
 		const C = ['1','2','3', '4', '5'];
