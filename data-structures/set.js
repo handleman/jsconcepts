@@ -8,12 +8,14 @@ class Set{
             });
         }
     }
+
     add(additionalSet){
         additionalSet.forEach(val=>{
            this._set[val] = true;
         });
         return this.get();
     }
+
     get(){
         const setAsArray = [];
         const set = this._set;
@@ -23,53 +25,63 @@ class Set{
         });
         return setAsArray;
     }
+
     has(item){
-        const typeErrorMesage =  Set._typeErroGenerator('has');
         if(item === undefined || item === null || isNaN(item)){
-            throw TypeError(typeErrorMesage);
+            Set._typeError('has');
         }
 
         return !!this._set[item];
     }
-    static _typeErroGenerator(methodName){
-        return `${methodName} method requires proper types of its attributes`;
-    }
-    static union(initialSet, additionalSet){
-        const typeErrorMesage =  this._typeErroGenerator('union');
 
+    static _typeError(methodName){
+        throw TypeError(`${methodName} method requires proper types of its attributes`)
+    }
+
+    static _checkArgumentsType(methodName, initialSet, additionalSet){
         if(!initialSet || !additionalSet){
-            throw TypeError(typeErrorMesage);
+            this._typeError(methodName);
         }
+    }
+
+    static _argumemtsAreArrays(firstArgument, secondArgument){
+        return firstArgument.constructor === Array && secondArgument.constructor === Array;
+    }
+
+    static _argumemtsAreSet(firstArgument, secondArgument){
+        return firstArgument.constructor === Set && secondArgument.constructor === Set
+    }
+
+    static union(initialSet, additionalSet){
         let source;
         let additional;
-        if(initialSet.constructor === Array && additionalSet.constructor === Array){
+        this._checkArgumentsType('union', initialSet, additionalSet);
+        if(this._argumemtsAreArrays(initialSet,additionalSet)){
             source = initialSet;
             additional = additionalSet;
-        } else if(initialSet.constructor === Set && additionalSet.constructor === Set){
+        } else if(this._argumemtsAreSet(initialSet, additionalSet)){
             source = initialSet.get();
             additional = additionalSet.get();
         }else{
-            throw TypeError(typeErrorMesage)
+            this._typeError('union');
         }
         const unitedSet = new Set(source);
         unitedSet.add(additional);
         return unitedSet;
     }
+
     static intersection (initialSet, additionalSet){
-        const typeErrorMesage =  this._typeErroGenerator('intersection');
-        if(!initialSet || !additionalSet){
-            throw TypeError(typeErrorMesage);
-        }
         let source;
         let additional;
-        if(initialSet.constructor === Array && additionalSet.constructor === Array){
+        this._checkArgumentsType('intersection', initialSet, additionalSet);
+        if(this._argumemtsAreArrays(initialSet,additionalSet)){
             source = new Set(initialSet);
             additional = additionalSet
-        } else if(initialSet.constructor === Set && additionalSet.constructor === Set){
+        } else if(this._argumemtsAreSet(initialSet, additionalSet)){
             source = initialSet;
             additional = additionalSet.get();
         }else{
-            throw TypeError(typeErrorMesage)
+            this._typeError('intersection');
         }
 
         const intersection = new Set();
@@ -81,24 +93,22 @@ class Set{
         });
 
         return intersection;
-
     }
+
     static difference (initialSet, negativeSet){
-        const typeErrorMesage =  this._typeErroGenerator('difference');
-        if(!initialSet || !negativeSet){
-            throw TypeError(typeErrorMesage);
-        }
         let source;
         let negative;
-        if(initialSet.constructor === Array && negativeSet.constructor === Array){
+        this._checkArgumentsType('intersection', initialSet, negativeSet);
+        if(this._argumemtsAreArrays(initialSet,negativeSet)){
             source = initialSet;
             negative = new Set(negativeSet);
-        } else if(initialSet.constructor === Set && negativeSet.constructor === Set){
+        } else if(this._argumemtsAreSet(initialSet, negativeSet)){
             source = initialSet.get();
             negative = negativeSet;
         }else{
-            throw TypeError(typeErrorMesage)
+            this._typeError('difference');
         }
+
         const difference = new Set();
 
         source.forEach(val=>{
