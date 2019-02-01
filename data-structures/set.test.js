@@ -72,18 +72,38 @@ describe('data-structures/set.js', ()=>{
 		const D = ['4', '5', '6', '7', '8'];
 		const IntersectionCD = ['4','5'];
 		const c = new Set(C);
-
 		const d = new Set(D);
-		const intersection = Set.intersection(c, d);
-		expect(intersection.get()).to.eql(IntersectionCD);
+
+		expect(Set.intersection(c, d).get()).to.eql(IntersectionCD);
+		expect(Set.intersection(C, D).get()).to.eql(IntersectionCD);
+
+		expect(()=>{Set.union(C)}).to.throw(TypeError);
+		expect(()=>{Set.union(C)}).to.throw(TypeError);
+		expect(()=>{Set.union(C, d)}).to.throw(TypeError);
+		expect(()=>{Set.union(c, D)}).to.throw(TypeError);
+		expect(()=>{Set.union(0, 0)}).to.throw(TypeError);
+		expect(()=>{Set.union(null)}).to.throw(TypeError);
+		expect(()=>{Set.union(undefined, undefined)}).to.throw(TypeError);
+		expect(()=>{Set.union()}).to.throw(TypeError);
 	});
 	it('should implement \'difference\' operation on sets', ()=>{
 		const C = ['1','2','3', '4', '5'];
 		const D = ['4', '5', '6', '7', '8'];
+		const DifferenceCD = ['1','2','3'];
 		const c = new Set(C);
 		const d = new Set(D);
-		const differenceCD = Set.intersection(c, d);
-		expect(differenceCD).to.eql(DifferenceCD);
+
+		expect(Set.difference(c, d).get()).to.eql(DifferenceCD);
+		expect(Set.difference(C, D).get()).to.eql(DifferenceCD);
+
+		expect(()=>{Set.union(C)}).to.throw(TypeError);
+		expect(()=>{Set.union(C)}).to.throw(TypeError);
+		expect(()=>{Set.union(C, d)}).to.throw(TypeError);
+		expect(()=>{Set.union(c, D)}).to.throw(TypeError);
+		expect(()=>{Set.union(0, 0)}).to.throw(TypeError);
+		expect(()=>{Set.union(null)}).to.throw(TypeError);
+		expect(()=>{Set.union(undefined, undefined)}).to.throw(TypeError);
+		expect(()=>{Set.union()}).to.throw(TypeError);
 	});
 
 

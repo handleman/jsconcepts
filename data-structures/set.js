@@ -9,7 +9,6 @@ class Set{
         }
     }
     add(additionalSet){
-        console.log('additionalSet', additionalSet);
         additionalSet.forEach(val=>{
            this._set[val] = true;
         });
@@ -84,8 +83,31 @@ class Set{
         return intersection;
 
     }
-    static difference (A, B){
+    static difference (initialSet, negativeSet){
+        const typeErrorMesage =  this._typeErroGenerator('difference');
+        if(!initialSet || !negativeSet){
+            throw TypeError(typeErrorMesage);
+        }
+        let source;
+        let negative;
+        if(initialSet.constructor === Array && negativeSet.constructor === Array){
+            source = initialSet;
+            negative = new Set(negativeSet);
+        } else if(initialSet.constructor === Set && negativeSet.constructor === Set){
+            source = initialSet.get();
+            negative = negativeSet;
+        }else{
+            throw TypeError(typeErrorMesage)
+        }
+        const difference = new Set();
 
+        source.forEach(val=>{
+            if (!negative.has(val)){
+                difference.add([val])
+            }
+        });
+
+        return difference;
     }
 }
 export default Set;
