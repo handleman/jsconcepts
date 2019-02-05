@@ -1,4 +1,4 @@
-import greedy from './greedy.js';
+import {greedy} from './greedy.js';
 import {radio} from '../sample/graphs';
 
 import {Set} from '../data-structures/set';
@@ -31,7 +31,7 @@ describe('algorithms/greedy.js', ()=>{
 		expect(optimum).to.be.an('array');
 	});
 
-	it('should find shortest path and return rithg values', ()=>{
+	it('should find shortest path ', ()=>{
 		const results = greedy(radio, coveragePlan);
 		expect(results).equal(rightStations);
 
