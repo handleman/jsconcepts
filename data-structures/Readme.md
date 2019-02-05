@@ -6,3 +6,4 @@ Currently implemented are :
 
 1. [FIFO queue data structure](./queue.js)
 1. [LIFO stack data structure](./stack.js)
+1. [Mathematical Set structure](./set.js)
