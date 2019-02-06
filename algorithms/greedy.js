@@ -24,6 +24,7 @@ function greedy(graph, coverage){
 	let spotted = new Set();
 
 	do{
+		let current = new Set();
 
 		for(const key in remain){
 
@@ -44,8 +45,11 @@ function greedy(graph, coverage){
 		required = Set.difference(required, spotted);
 		result.push(currentName);
 		delete remain[currentName];
+		if(current.get().length === 0){
+			break;
+		}
 	}
-	while (required.get().length > 0);
+	while (required.get().length > 0 && Object.keys(remain).length > 0);
 
 
 
