@@ -27,11 +27,12 @@ class Set{
     }
 
     has(item){
-        if(item === undefined || item === null || isNaN(item)){
-            Set._typeError('has');
+        if(!!item ){
+            return !!this._set[item];
+        }else{
+            return false;
         }
 
-        return !!this._set[item];
     }
 
     static _typeError(methodName){
