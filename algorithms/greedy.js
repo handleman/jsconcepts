@@ -3,7 +3,7 @@ import Set from '../data-structures/set';
 /**
  * Greedy algorithm implementation
  * https://en.wikipedia.org/wiki/Greedy_algorithm
- * At this particular example algorithm is calculation optimal amount of radiostations
+ * At this particular example algorithm is calculation optimal amount of radio-stations
  * to cover given cities list
  * @param graph
  * @param {Array} coverage - coverage map for chosen items
@@ -16,10 +16,10 @@ function greedy(graph, coverage){
 	if(!coverage || coverage.constructor.name !== "Array"){
 		throw new Error('Coverage map should be provided');
 	}
+
 	let result = [];
 	let required = new Set(coverage);
 	let remain = copyObject(graph);
-	let current = new Set();
 	let currentName;
 	let spotted = new Set();
 
@@ -50,9 +50,6 @@ function greedy(graph, coverage){
 		}
 	}
 	while (required.get().length > 0 && Object.keys(remain).length > 0);
-
-
-
 
 	return result;
 }

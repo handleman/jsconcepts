@@ -1,3 +1,7 @@
+/**
+ * graph to test wide-search algorithm
+ * @type {{olga: {sellMango: boolean, friends: string[]}, pavel: {sellMango: boolean, friends: string[]}, denis: {sellMango: boolean, friends: string[]}, vad: {sellMango: boolean, friends: string[]}, tania: {sellMango: boolean, friends: string[]}, oleg: {sellMango: boolean, friends: string[]}, anton: {sellMango: boolean, friends: string[]}}}
+ */
 const fruitSellers = {
 	pavel:{
 		friends:['olga','anton','denis','vad'],
@@ -115,15 +119,20 @@ const citiesPathResult = {
 	value: (100+ 100 +40 +70)
 };
 
+/**
+ * graph tree to test greedy algorithm
+ * this is list of radio stations and list of cities each of them  covers
+ * @type {{"Новое Радио": string[], "Юмор FM": string[], "Русское Радио": string[], "Радио Могилев": string[], "Альфа Радио": string[], "Душевное Радио": string[], Unistar: string[], "Радио Брест": string[], "Радио Витебск": string[], "Пилот FM": string[], "Радио Би-Эй": string[], "Зефир FM": string[]}}
+ */
 const radio = {
-	'Unistar':['hrodna', 'minsk', 'bobruisk', 'slonim', 'mogilev', 'gomel', 'brest', 'lida', 'pinsk'],
+	'Unistar':['hrodna', 'minsk', 'bobruisk', 'mogilev', 'gomel', 'brest', 'lida', 'pinsk'],
 	'Новое Радио':['minsk', 'vitebsk','hrodna', 'gomel', 'brest' ],
 	'Русское Радио':['hrodna', 'minsk', 'vitebsk', 'gomel', 'brest', 'pinsk'],
 	'Душевное Радио':['hrodna', 'vitebsk', 'bobruisk'],
 	'Радио Брест':[ 'slonim', 'brest', 'lida', 'pinsk'],
 	'Юмор FM':['hrodna', 'gomel', 'brest', 'lida', 'pinsk'],
 	'Пилот FM':['brest', 'lida', 'pinsk'],
-	'Радио Би-Эй':['minsk',  'slonim', 'mogilev', 'gomel', 'lida', 'pinsk'],
+	'Радио Би-Эй':['minsk',  'slonim', 'lida', 'pinsk'],
 	'Радио Витебск':[ 'vitebsk'],
 	'Радио Могилев':[ 'mogilev'],
 	'Альфа Радио':['slonim', 'mogilev', 'gomel', 'brest', 'pinsk'],

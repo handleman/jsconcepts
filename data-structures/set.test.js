@@ -7,6 +7,7 @@ describe('data-structures/set.js', ()=>{
 
 	it('should have all standard interface methods', () => {
 		const set = new Set(['1','2','3']);
+
 		expect(set).to.be.an('object').that.is.not.empty;
         expect(set).to.respondTo('add');
         expect(set).to.respondTo('get');
@@ -18,6 +19,7 @@ describe('data-structures/set.js', ()=>{
 	it('should be initialized correctly', () => {
 		const checkSet= ['1','2','3'];
         const set = new Set(checkSet);
+
         expect(set.get()).to.be.an('array');
         expect(set.get()).eql(checkSet);
 
@@ -29,11 +31,6 @@ describe('data-structures/set.js', ()=>{
 		expect(a.has('2')).to.be.true;
 		expect(a.has('4')).to.be.false;
 		expect(a.has(1888)).to.be.false;
-
-
-		expect(()=>{a.has(null)}).to.throw(TypeError);
-		expect(()=>{a.has(undefined)}).to.throw(TypeError);
-		expect(()=>{a.has(NaN)}).to.throw(TypeError);
 
 	});
     it('should implement \'add\' operation on set', ()=>{

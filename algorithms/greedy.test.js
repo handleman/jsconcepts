@@ -9,16 +9,8 @@ const expect  = chai.expect;
 const coveragePlan = ['hrodna', 'minsk', 'vitebsk', 'bobruisk', 'slonim', 'gomel', 'brest', 'lida', 'pinsk'];
 const rightStations = [
 	'Unistar',
-    'Новое Радио',
     'Русское Радио',
-    'Душевное Радио',
-    'Радио Брест',
-    'Юмор FM',
-    'Пилот FM',
-    'Радио Би-Эй',
-    'Радио Витебск',
-    'Альфа Радио',
-    'Зефир FM'
+    'Альфа Радио'
 ];
 
 describe('algorithms/greedy.js', ()=>{
@@ -33,7 +25,7 @@ describe('algorithms/greedy.js', ()=>{
 
 	it('should find shortest path ', ()=>{
 		const results = greedy(radio, coveragePlan);
-		expect(results).equal(rightStations);
+		expect(results).to.deep.equal(rightStations);
 
 	});
 	it('should throw exceptional errors on wrong data provided', ()=>{
