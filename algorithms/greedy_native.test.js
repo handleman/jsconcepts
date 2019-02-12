@@ -1,7 +1,6 @@
-import {greedy} from './greedy.js';
+import {greedy} from './greedy_native.js';
 import {radio} from '../sample/graphs';
 
-import {Set} from '../data-structures/set';
 import chai from 'chai';
 
 const expect  = chai.expect;
@@ -13,7 +12,7 @@ const rightStations = [
     'Альфа Радио'
 ];
 
-describe('algorithms/greedy.js', ()=>{
+describe('algorithms/greedy_native.js', ()=>{
 
 	it('should be defined', () => {
 		expect(greedy).to.be.a('function');
