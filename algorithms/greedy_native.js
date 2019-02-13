@@ -26,13 +26,12 @@ function greedy(graph, coverage){
 		let current = new Set();
 
 		for(const key in remain){
-
 			if(remain.hasOwnProperty(key)){
-
 				const val = remain[key];
 				const selected = new Set(val);
-				const intersection = new Set([...selected].filter(x=>{ required.has(x)}));
-				if(intersection.values().length && selected.values().length > current.values().length){
+				const intersection = new Set([...selected].filter(x=>{return required.has(x)}));
+
+				if(intersection.size && selected.size > current.size){
 					spotted = intersection;
 					current = selected;
 					currentName = key;
@@ -40,16 +39,15 @@ function greedy(graph, coverage){
 			}
 		}
 
-		required = new Set([...required].filter(x=>{ !spotted.has(x)}));
-
+		required = new Set([...required].filter(x=>{ return !spotted.has(x)}));
 		result.push(currentName);
 		delete remain[currentName];
 
-		if(current.values().length === 0){
+		if(current.size === 0){
 			break;
 		}
 	}
-	while (required.values().length > 0 && Object.keys(remain).length > 0);
+	while (required.size > 0 && Object.keys(remain).length > 0);
 
 	return result;
 }
