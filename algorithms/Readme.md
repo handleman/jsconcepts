@@ -11,3 +11,4 @@ Currently implemented are :
 1. [Breadth-first search algorithm implemented (native Array for queue)](./breadth_first.js)
 1. [Dijkstra's algorithm](./dijkstra.js)
 1. [Greedy algorithm](./greedy.js)
+1. [Greedy algorithm with native Javascript Set() constructions](./greedy_native.js)
