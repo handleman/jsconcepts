@@ -24,9 +24,9 @@ describe('algorithms/dynamic.js', ()=>{
 	});
 
 	it('should find the longest common subsequence',()=>{
-		expect(dynamic(query1, examples)).equal('thread');
-		expect(dynamic(query2, examples)).equal('thoughtful');
-		expect(dynamic(query3, examples)).equal('blowout');
+		expect(dynamic(query1, examples).suggestion).equal('thread');
+		expect(dynamic(query2, examples).suggestion).equal('thoughtful');
+		expect(dynamic(query3, examples).suggestion).equal('blowout');
 	});
 
 });
