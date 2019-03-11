@@ -4,7 +4,7 @@
  * @param {Array} examples array of variants from which algorithm needs to chose
  */
 function dynamic(searchQyery, examples){
-	const query = searchQyery.split();
+	const query = searchQyery.split('');
 	let result = {
 		matrix:[],
 		matchLength:0,
@@ -22,7 +22,12 @@ function dynamic(searchQyery, examples){
 			for(let j=0; j < example.length; j++){
 				let relevant;
 				if (query[i] === example[j]){
-					relevant = result.matrix[i-1][j-1] ? result.matrix[i-1][j-1] + 1 : 1;
+					if (result.matrix[i-1] !== undefined &&  result.matrix[i-1][j-1]  !== undefined){
+							relevant = result.matrix[i-1][j-1] + 1;
+					}else{
+						relevant = 1
+					}
+
 					result.matrix[i][j] = relevant;
 					result.subsequence.push(query[i]);
 					if (result.matchLength < relevant){
@@ -30,7 +35,13 @@ function dynamic(searchQyery, examples){
 					}
 
 				}else{
-					relevant = Math.max(result.matrix[i-1][j], result.matrix[i][j-1]) || 0;
+					if(result.matrix[i-1] && result.matrix[i-1][j] !== undefined && result.matrix[i][j-1] !== undefined){
+						relevant = Math.max(result.matrix[i-1][j], result.matrix[i][j-1]) ;
+					}else if (result.matrix[i-1] && result.matrix[i-1][j]  !== undefined ){
+						relevant = result.matrix[i-1][j];
+					}else {
+						relevant = 0;
+					}
 				}
 				result.matrix[i].push(relevant);
 			}
