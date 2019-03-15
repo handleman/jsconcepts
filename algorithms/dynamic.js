@@ -17,20 +17,29 @@ function dynamic(searchQyery, examples){
 			subsequence:[],
 		};
 		for(let i =0; i < query.length; i++){
+			let clip = [];
 			result.matrix.push([]);
 			for(let j=0; j < example.length; j++){
 				let relevant;
 				if (query[i] === example[j]){
-					if (result.matrix[i-1] !== undefined &&  result.matrix[i-1][j-1]  !== undefined){
+
+					if(!clip.includes(example[j])){
+
+						if (result.matrix[i-1] !== undefined &&  result.matrix[i-1][j-1]  !== undefined){
 							relevant = result.matrix[i-1][j-1] + 1;
+						}else{
+							relevant = 1
+						}
+
+						result.subsequence.push(query[i]);
+						result.matchLength++;
+						clip.push(query[i]);
 					}else{
-						relevant = 1
+						relevant = result.matrix[i][j-1]
 					}
 
-					result.subsequence.push(query[i]);
-					result.matchLength++;
-
 				}else{
+
 					if(result.matrix[i-1] && result.matrix[i-1][j] !== undefined && result.matrix[i][j-1] !== undefined){
 						relevant = Math.max(result.matrix[i-1][j], result.matrix[i][j-1]) ;
 					}else if (result.matrix[i-1] && result.matrix[i-1][j]  !== undefined ){

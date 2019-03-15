@@ -20,7 +20,7 @@ const examples1 = [
 describe('algorithms/dynamic.js', ()=>{
 	const query1 = 'tread';
 	const query2 = 'houl';
-	const query3 = 'throwout';
+	const query3 = 'showout';
 
 	it('should be defined', () => {
 		expect(dynamic).to.be.a('function');
