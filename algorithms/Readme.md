@@ -12,3 +12,4 @@ Currently implemented are :
 1. [Dijkstra's algorithm](./dijkstra.js)
 1. [Greedy algorithm](./greedy.js)
 1. [Greedy algorithm with native Javascript Set() constructions](./greedy_native.js)
+1. [Dynamic programming method](./dynamic.js)
