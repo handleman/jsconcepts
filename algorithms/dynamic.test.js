@@ -13,6 +13,9 @@ const examples = [
 	'through',
 	'thread'
 ];
+const examples1 = [
+	'thread'
+];
 
 describe('algorithms/dynamic.js', ()=>{
 	const query1 = 'tread';
@@ -24,9 +27,9 @@ describe('algorithms/dynamic.js', ()=>{
 	});
 
 	it('should find the longest common subsequence',()=>{
-		expect(dynamic(query1, examples).suggestion).equal('thread');
-		expect(dynamic(query2, examples).suggestion).equal('thoughtful');
-		expect(dynamic(query3, examples).suggestion).equal('blowout');
+		expect(dynamic(query1, examples)).equal('thread');
+		expect(dynamic(query2, examples)).equal('thoughtful');
+		expect(dynamic(query3, examples)).equal('blowout');
 	});
 
 });

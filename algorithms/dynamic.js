@@ -5,18 +5,17 @@
  */
 function dynamic(searchQyery, examples){
 	const query = searchQyery.split('');
-	let result = {
-		matrix:[],
-		matchLength:0,
-		subsequence:[],
-		suggestion:''
-	};
+
 	let results = {};
 	let optimum = {};
 
 	examples.forEach((val)=>{
 		const example = val.split('');
-
+		let result = {
+			matrix:[],
+			matchLength:0,
+			subsequence:[],
+		};
 		for(let i =0; i < query.length; i++){
 			result.matrix.push([]);
 			for(let j=0; j < example.length; j++){
@@ -28,11 +27,8 @@ function dynamic(searchQyery, examples){
 						relevant = 1
 					}
 
-					result.matrix[i][j] = relevant;
 					result.subsequence.push(query[i]);
-					if (result.matchLength < relevant){
-						result.suggestion = example.join('');
-					}
+					result.matchLength++;
 
 				}else{
 					if(result.matrix[i-1] && result.matrix[i-1][j] !== undefined && result.matrix[i][j-1] !== undefined){
@@ -48,15 +44,17 @@ function dynamic(searchQyery, examples){
 
 		}
 
-		results[result.suggestion] = result;
+		results[val] = result;
 	});
 
 	Object.keys(results).forEach((key)=>{
 		if(Object.keys(optimum).length === 0){
 			optimum = results[key];
+			optimum.suggestion = key;
 		}
 		if(results[key].matchLength > optimum.matchLength){
 			optimum = results[key];
+			optimum.suggestion = key;
 		}
 	});
 
